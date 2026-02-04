@@ -36,7 +36,7 @@ body {
   position: relative;
 }
 
-/* --- Animated background (skills-themed: connection, flow, structure) --- */
+/* --- Background: clean, professional, recruiter-friendly --- */
 .site-bg {
   position: fixed;
   inset: 0;
@@ -47,78 +47,80 @@ body {
 .site-bg-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--bg-base) 0%, var(--bg-mid) 45%, #1e40af 100%);
-  opacity: 0.97;
-  transition: opacity 0.6s var(--ease-out);
+  background: linear-gradient(160deg, #0f172a 0%, #1e293b 35%, #1e3a5f 70%, #1e40af 100%);
+  transition: background 0.8s var(--ease-out);
 }
 
-/* Floating orbs – collaboration / communication flow */
-.site-bg-shapes {
-  position: absolute;
-  inset: 0;
-}
-
-.bg-shape {
+/* Soft ambient glows – subtle, non-distracting */
+.site-bg-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.5;
-  animation: float 20s ease-in-out infinite;
+  filter: blur(100px);
+  opacity: 0.2;
+  animation: bg-pulse 12s ease-in-out infinite;
+  pointer-events: none;
 }
 
-.bg-shape-1 { width: 280px; height: 280px; background: var(--bg-accent); top: 10%; left: 5%; animation-delay: 0s; animation-duration: 18s; }
-.bg-shape-2 { width: 200px; height: 200px; background: #60a5fa; top: 60%; right: 10%; animation-delay: -4s; animation-duration: 22s; }
-.bg-shape-3 { width: 160px; height: 160px; background: #93c5fd; bottom: 20%; left: 20%; animation-delay: -8s; animation-duration: 20s; }
-.bg-shape-4 { width: 220px; height: 220px; background: #2563eb; top: 30%; right: 25%; animation-delay: -2s; animation-duration: 24s; }
-.bg-shape-5 { width: 120px; height: 120px; background: #3b82f6; bottom: 40%; right: 35%; animation-delay: -6s; animation-duration: 19s; }
-.bg-shape-6 { width: 180px; height: 180px; background: #1d4ed8; top: 70%; left: 40%; animation-delay: -10s; animation-duration: 21s; }
-
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(20px, -30px) scale(1.05); }
-  50% { transform: translate(-15px, 20px) scale(0.95); }
-  75% { transform: translate(30px, 10px) scale(1.02); }
+.site-bg-glow-1 {
+  width:  min(80vw, 520px);
+  height: min(80vw, 520px);
+  background: #2563eb;
+  top: -10%;
+  right: -5%;
+  animation-delay: 0s;
 }
 
-/* Subtle grid – structure / organization */
-.site-bg-grid {
+.site-bg-glow-2 {
+  width:  min(60vw, 380px);
+  height: min(60vw, 380px);
+  background: #3b82f6;
+  bottom: -15%;
+  left: -5%;
+  animation-delay: -4s;
+}
+
+@keyframes bg-pulse {
+  0%, 100% { opacity: 0.18; transform: scale(1); }
+  50% { opacity: 0.25; transform: scale(1.05); }
+}
+
+/* Fine dot pattern – adds depth without clutter */
+.site-bg-pattern {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 70%);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 30%, transparent 75%);
 }
 
-/* Section-specific background variants (blueish tones) */
+/* Section-specific gradients – refined, professional blue tones */
 body[data-section="home"] .site-bg-gradient {
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 40%, #1e40af 100%);
+  background: linear-gradient(160deg, #0f172a 0%, #1e293b 40%, #1e3a5f 75%, #1e40af 100%);
 }
 
 body[data-section="about"] .site-bg-gradient {
-  background: linear-gradient(160deg, #0c1222 0%, #1e3a5f 50%, #1d4ed8 100%);
+  background: linear-gradient(165deg, #0f172a 0%, #1e293b 45%, #1e3a5f 80%, #1d4ed8 100%);
 }
 
 body[data-section="experience"] .site-bg-gradient {
-  background: linear-gradient(140deg, #0f172a 0%, #1e40af 45%, #2563eb 100%);
+  background: linear-gradient(155deg, #0f172a 0%, #1e3a5f 40%, #1e40af 75%, #2563eb 100%);
 }
 
 body[data-section="education"] .site-bg-gradient {
-  background: linear-gradient(150deg, #1e3a5f 0%, #1e40af 55%, #3b82f6 100%);
+  background: linear-gradient(158deg, #1e293b 0%, #1e3a5f 50%, #1e40af 85%, #3b82f6 100%);
 }
 
 body[data-section="skills"] .site-bg-gradient {
-  background: linear-gradient(130deg, #1e3a5f 0%, #2563eb 40%, #60a5fa 100%);
+  background: linear-gradient(152deg, #1e3a5f 0%, #1e40af 45%, #2563eb 80%, #60a5fa 100%);
 }
 
 body[data-section="interests"] .site-bg-gradient {
-  background: linear-gradient(145deg, #1e40af 0%, #3b82f6 50%, #93c5fd 100%);
+  background: linear-gradient(148deg, #1e40af 0%, #2563eb 45%, #3b82f6 80%, #93c5fd 100%);
 }
 
 body[data-section="contact"] .site-bg-gradient {
-  background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 45%, #60a5fa 100%);
+  background: linear-gradient(155deg, #1d4ed8 0%, #2563eb 40%, #3b82f6 75%, #60a5fa 100%);
 }
 
 a { color: var(--color-accent); text-decoration: none; }
@@ -258,6 +260,17 @@ a:hover { text-decoration: underline; }
   flex-wrap: wrap;
 }
 
+.hero-photo {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  margin: 0 auto 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  object-fit: cover;
+  display: block;
+}
+
 /* --- Buttons --- */
 .btn {
   font-family: var(--font-sans);
@@ -294,6 +307,39 @@ a:hover { text-decoration: underline; }
 }
 
 /* --- About --- */
+.about-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.about-photo {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+@media (min-width: 640px) {
+  .about-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .about-photo {
+    max-width: 240px;
+    flex-shrink: 0;
+  }
+}
+
+.content-block {
+  flex: 1;
+  min-width: 0;
+}
+
 .content-block h3 {
   font-size: 1rem;
   font-weight: 600;
@@ -332,6 +378,13 @@ a:hover { text-decoration: underline; }
   font-size: 1rem;
   font-weight: 600;
   margin: 0 0 0.5rem;
+}
+
+.timeline-subtitle {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-accent-light);
+  margin: 1.25rem 0 0.5rem;
 }
 
 .timeline-item ul {
