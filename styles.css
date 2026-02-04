@@ -56,6 +56,15 @@ a:hover { text-decoration: underline; }
 }
 .logo:hover { text-decoration: none; color: var(--color-accent); }
 
+.header-github {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  margin-right: auto;
+  margin-left: 1rem;
+}
+.header-github:hover { text-decoration: none; color: var(--color-accent-light); }
+
 .main-nav {
   display: flex;
   gap: 0.25rem;
@@ -154,8 +163,14 @@ a:hover { text-decoration: underline; }
 .hero-tagline {
   font-size: 0.9375rem;
   color: var(--color-text-muted);
+  margin: 0 0 0.5rem;
+}
+
+.hero-github {
+  font-size: 0.9375rem;
   margin: 0 0 2rem;
 }
+.hero-github a { font-weight: 500; }
 
 .hero-cta {
   display: flex;
