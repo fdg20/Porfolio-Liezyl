@@ -20,6 +20,8 @@
     const targetSection = document.getElementById(targetId);
     if (!targetSection) return;
 
+    document.body.setAttribute('data-section', sectionName);
+
     navLinks.forEach(function (link) {
       const isActive = link.getAttribute('data-section') === sectionName;
       link.classList.toggle(ACTIVE_CLASS, isActive);
