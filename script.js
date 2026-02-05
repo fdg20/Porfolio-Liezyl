@@ -52,17 +52,38 @@
     if (nav) nav.classList.remove('is-open');
   }
 
-  function openMobileMenu() {
+  function openMobileMenu(event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
     if (nav) nav.classList.toggle('is-open');
   }
 
+  // Handle navigation clicks
   document.addEventListener('click', function (event) {
+    // Don't handle clicks on the menu toggle button here
+    if (event.target.closest('.menu-toggle')) {
+      return;
+    }
+
+    // Handle nav link clicks
     if (event.target.matches(NAV_SELECTOR) || event.target.closest(NAV_SELECTOR)) {
       handleNavClick(event);
+    } else {
+      // Close menu when clicking outside
+      if (nav && nav.classList.contains('is-open')) {
+        closeMobileMenu();
+      }
     }
   });
 
+  // Handle menu toggle button click
   if (menuToggle) {
-    menuToggle.addEventListener('click', openMobileMenu);
+    menuToggle.addEventListener('click', function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      openMobileMenu(event);
+    });
   }
 })();
